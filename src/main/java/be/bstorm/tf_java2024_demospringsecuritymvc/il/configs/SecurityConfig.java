@@ -26,7 +26,7 @@ public class SecurityConfig {
                                 .requestMatchers("/admin/**").hasAuthority("ADMIN")
                                 .anyRequest().authenticated())
                 .formLogin(form -> form.loginPage("/login").permitAll()
-                        .defaultSuccessUrl("/home"))
+                        .defaultSuccessUrl("/home",true))
                 .logout(logout -> logout.logoutUrl("/logout")
                         .deleteCookies("JSESSIONID")
                         .invalidateHttpSession(true))
